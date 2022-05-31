@@ -1,0 +1,31 @@
+{
+  "name": "@slidev/theme-not-so-default",
+  "version": "0.21.2",
+  "engines": {
+    "node": ">=14.0.0",
+    "slidev": ">=0.19.2"
+  },
+  "description": "Not so Default theme for Slidev",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "license": "MIT",
+  "slidev": {
+    "colorSchema": "both",
+    "highlighter": "all",
+    "defaults": {
+      "fonts": {
+        "mono": "Fira Code",
+        "sans": "Avenir Next,Nunito Sans",
+        "local": "Avenir Next"
+      }
+    }
+  },
+  "dependencies": {
+    "@slidev/types": "^0.22.7",
+    "codemirror-theme-vars": "^0.1.1",
+    "prism-theme-vars": "^0.2.2",
+    "theme-vitesse": "^0.1.12"
+  }
+}

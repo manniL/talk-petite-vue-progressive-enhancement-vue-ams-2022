@@ -1,28 +1,74 @@
 ---
-# try also 'default' to start simple
-theme: default
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# https://sli.dev/custom/highlighters.html
+theme: ./theme
+website: 'lichter.io'
+handle: 'TheAlexLichter'
+favicon: 'https://lichter.io/img/me@2x.jpg'
 highlighter: shiki
-# show line numbers in code blocks
 lineNumbers: true
-# persist drawings in exports and build
-drawings:
-  persist: false
+layout: intro
 ---
+
+<h1>petite-<span class="text-[#41b883]">vue</span> <logos-vue class="-ml-2 text-2xl" /></h1>
+
+<h2>Progressively enhancing <span class="text-[#41b883]">every</span> application?</h2>
+
+<br><br><br><br>
+
+### Vue.js Amsterdam 2022
+
+---
+layout: two-cols
+heading: About me
+---
+
+<template v-slot:default>
+<div class="flex flex-col justify-center items-center h-full">
+<img
+  class="w-75 rounded-full"
+  src="https://lichter.io/img/me@2x.webp"
+  />
+  <h2 class="mt-4">Alexander Lichter</h2>
+</div>
+</template>
+
+<template v-slot:right>
+<VClicks class="space-y-2 mt-10 text-xl h-full">
+
+* <mdi-account-check class="text-green-100" /> Web Development Consultant
+* <mdi-microphone /> Speaker & Instructor
+* <logos-nuxt-icon /> Nuxt.js Maintainer
+* <mdi-twitter class="text-blue-400" /> @TheAlexLichter
+* <mdi-web /> [https://lichter.io](https://lichter.io)
+
+</VClicks>
+</template>
+
+---
+
+<h1>We <mdi-heart class="text-red"/> writing <logos-vue /> applications, right?</h1>
+
 
 # WIP
 
 ## Hook:
   * We all love to build Vue applications (right?) - connect "somehow" to amazing talks from before
+  * But how many % of the websites are Single Page Applications (not only Vue)?
+    * Ask the audience to shout the number
+  * Answer: We don't know! What we know:
+    * ~15% of the websites use a modern JavaScript framework (e.g. Vue or React) [Source: Web Almanac 2021](https://docs.google.com/spreadsheets/d/1zU9rHpI3nC6jTz3xgN6w13afW7x34xAKBh2IPH-lVxk/edit#gid=1851485826)
+    * But not all are SPAs...
+    
   * Not always a green field - not always SPAs - maybe LAMP, maybe Java based monoliths (traditional server-rendered)
   * Actually, most of the projects are "legacy"
     * jQuery/MooTools/...
   * Sometimes not migratable to SPAs (time/budget/experience?)
   * But still we want to add interactivity to such projects every now and then as well
     * With a modern approach!
+    * Support devices with no JS as well
+
+---
+
+ Alpine.js - 0.1%
 
 ## Progressive Enhancement
 
@@ -42,13 +88,22 @@ drawings:
 
 * v-scope
 * Auto init
-* Show component examples
+* createApp
+* getters
+* Methods (and compare to options api)
+* mount to specific elements
+* Lifecycle "hooks"
+* `v-effect`
+* Has a system for components
+* Store via Vue's `reactive`
+* Custom directive (optional)
 
 ### Limitations
 
 * No `ref` nor `computed`
 * No `render` functions (due to missing VDOM)
 * SPA features like transitions, teleports, suspense and more
+* Not treeshakable
 
 ### Live coding?
 
@@ -56,6 +111,8 @@ drawings:
 
 * Inspired by alpine
 * Both powered by VueJS reactivity
+* petite-vue -> even more minimal, but "vue compatible" 
+* Alpine -> steers towards own ecosystem
 
 <!---
 
