@@ -44,16 +44,48 @@ heading: About me
 </template>
 
 ---
+layout: intro
+---
 
-<h1>We <mdi-heart class="text-red"/> writing <logos-vue /> applications, right?</h1>
+# When we build with <logos-vue />...
+# ...we mostly develop SPAs
 
+---
+layout: intro
+---
+
+# But how many percent of all websites are SPAs?
+
+<img>
+
+<!-- 
+SPA = Not only Vue
+
+Ask the audience to shout the number
+-->
+
+---
+
+# We don't know how many SPAs exist out there!
+
+---
+
+# We <mdi-heart class="text-red-500"/> writing <logos-vue /> applications, right?
+
+<VClicks>
+
+* But there are so many situations where we can't
+* Test
+
+</VClicks>
+
+---
 
 # WIP
 
 ## Hook:
   * We all love to build Vue applications (right?) - connect "somehow" to amazing talks from before
   * But how many % of the websites are Single Page Applications (not only Vue)?
-    * Ask the audience to shout the number
   * Answer: We don't know! What we know:
     * ~15% of the websites use a modern JavaScript framework (e.g. Vue or React) [Source: Web Almanac 2021](https://docs.google.com/spreadsheets/d/1zU9rHpI3nC6jTz3xgN6w13afW7x34xAKBh2IPH-lVxk/edit#gid=1851485826)
     * But not all are SPAs...
@@ -61,7 +93,7 @@ heading: About me
   * Not always a green field - not always SPAs - maybe LAMP, maybe Java based monoliths (traditional server-rendered)
   * Actually, most of the projects are "legacy"
     * jQuery/MooTools/...
-  * Sometimes not migratable to SPAs (time/budget/experience?)
+  * Sometimes not migratable to SPAs (time/budget/domain knowledge in the code/experience of the team)
   * But still we want to add interactivity to such projects every now and then as well
     * With a modern approach!
     * Support devices with no JS as well
