@@ -290,17 +290,12 @@ layout: intro
 <img v-click src="https://i.imgur.com/vti0CoP.png" class="h-80 mx-auto" alt="Ol reliable meme showing petite-vue">
 
 ---
-layout: intro
----
 
-# `petite-vue` <logos-vue class="text-2xl" />
-
----
-
-# `petite-vue`
+# `petite-vue` <logos-vue class="-ml-2 text-xl" />
 
 <VClicks>
 
+* Released on Jul 2, 2021 (roughly a year ago!)
 * A minimal subset of Vue (5.5 kB)
 * Keeps Vue-like syntax & is powered by `@vue/reactivity`
 * Reduced feature scope
@@ -373,6 +368,8 @@ const count = ref(0)
 </Code>
 
 ---
+clicks: 4
+---
 
 # Assembled counter example
 
@@ -407,6 +404,8 @@ defer -> after HTML is parsed
 
 -->
 
+---
+clicks: 2
 ---
 
 # Without auto init
@@ -486,30 +485,138 @@ defer -> after HTML is parsed
 
 # Your own Store
 
+```html
+<script>
+  import { createApp, reactive } from 'https://unpkg.com/petite-vue?module'
+  
+  const store = reactive({
+    count: 0,
+    increment () {
+      this.count++
+    }
+  })
+  
+  createApp({ store }).mount()
+</script>
+```
+
 ---
 
 # Limitations of `petite-vue`
 
-<!-- TODO -->
+<VClicks>
 
-* No `ref` nor `computed`
+* As `petite-vue` is a subset, some features of Vue are not available
+* Most of them are not needed for progressive enhancement anyway, e.g.:
 * No `render` functions (due to missing VDOM)
-* SPA features like transitions, teleports, suspense and more
-* Not treeshakable
+* Teleports, Suspense and other SPA features
+* Transitions (can be theoretically added as a plugin though)
+* No `ref`, no `computed`
+* No CSP-safe build (there is a [fork](https://github.com/baptistejamin/petite-vue-csp) for that though)
+
+</VClicks>
 
 ---
 
 # Alpine.js and `petite-vue`
 
-* Inspired by alpine
-* Both powered by VueJS reactivity
-* petite-vue -> even more minimal, but "vue compatible" 
-  * Nice for later upgrade to Vue.js if migration desired
-* Alpine -> steers towards own ecosystem
+<VClicks>
+
+* Alpine.js is a lightweight JavaScript framework as well
+* It was inspired by Vue and uses `@vue/reactivity` under the hood
+* `petite-vue` on the other hand was inspired by **Alpine**
+* Full circle! 
+
+</VClicks>
+
+<img class="mx-auto h-40" v-click src="https://media.giphy.com/media/UtKqel5XBUOubW9mTb/giphy.gif">
+
+---
+
+# Showcasing Alpine & `petite-vue`
+
+<Grid>
+<Code file="alpine.html">
+
+```html
+<div x-data="{ count: 0 }">
+  <button x-on:click="count++">Increment</button>
+  <span x-text="count"></span>
+</div>
+```
+
+</Code>
+<Code file="petite-vue.html">
+
+```html
+<div v-scope="{ count: 0 }">
+  <button @click="count++">Increment</button> 
+  <span>{{ count }}</span>
+</div>
+```
+
+</Code>
+</Grid>
+
+<img v-click class="mx-auto mt-12 h-50" src="https://media.giphy.com/media/bcrOR2stk6tKIxqPOZ/giphy.gif" alt="Two Spidermen pointing at each other">
+
+---
+
+# Differences between Alpine and `petite-vue`
+
+<VClicks>
+
+* Alpine is 2x larger than `petite-vue` and comes with a few more features (like a transition system)
+* It also steers towards its own ecosystem
+* `petite-vue` was thougth as even more minimal compared to Alpine, but also "vue compatible" 
+* Comes in handy for potentional later migration to Vue.js if desired
+
+</VClicks>
+
+---
+
+# My decision tree
+When building applications
+
+<div v-click class="-mt-24 h-80">
+
+```mermaid
+flowchart LR
+    A[App] --> B{Green field project?}
+    B -->|Yes| C[Nuxt.js]
+    B -->|No| D{Needs tiny pieces of interactivity}
+    D -->|Yes| E[Vanilla JavaScript]
+    D -->|No| F[Leverages jQuery]
+    F -->|Yes| G[petite-vue]
+    F -->|No| H{Uses a modern framework already}
+    H -->|Yes| I[Keep the framework]
+    H -->|No| J[Vue.js]
+```
+
+</div>
 
 ---
 
 # Conclusion
+
+<VClicks>
+
+* Not all projects are SPAs and some don't **have to**!
+* Use the appropriate tools in your belt for the task
+* `petite-vue` is a nice option to sprinkle interactivity into your server-rendered application
+* It is smaller and has no VDOM -> ideal for progressive enhancement
+* Vuesers will have an easy time writing `petite-vue` and it will make a possible migration easier
+
+</VClicks>
+
+<VClick>
+
+<div class="text-6xl mt-16 flex justify-center">
+<mdi-heart class="text-red-500" />
+<logos-vue />
+</div>
+
+</VClick>
 
 ---
 layout: two-cols
@@ -537,3 +644,11 @@ heading: Thanks for your attention
 
 </div>
 </template>
+
+---
+layout: intro
+---
+
+# Thanks a lot to my sponsors!
+
+<img src="/sponsors.svg" class="h-70 mx-auto" alt="My GitHub sponsors">
