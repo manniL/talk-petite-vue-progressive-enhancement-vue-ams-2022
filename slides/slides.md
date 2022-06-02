@@ -1,5 +1,6 @@
 ---
 theme: ./theme
+title: 'petite-vue - Progressively enhancing every application?'
 website: 'lichter.io'
 handle: 'TheAlexLichter'
 favicon: 'https://lichter.io/img/me@2x.jpg'
@@ -413,16 +414,15 @@ clicks: 2
 <Grid>
 <Code>
 
-```html{all|1,11-13}
-<script src="https://unpkg.com/petite-vue" defer></script>
-
+```html{all|8-13}
 <div v-scope="{ count: 0 }">
   Count: {{ count }}
   <button @click="count++">
     Increment
-  </button> 
+  </button>
 </div>
 
+<script src="https://unpkg.com/petite-vue"></script>
 <script>
   PetiteVue
     .createApp()
@@ -458,16 +458,87 @@ clicks: 2
 </VClicks>
 
 ---
+clicks: 3
+---
 
 # Mounting to specific elements
 
+<Grid>
+<Code v-click="1">
+
+```html{all|7-12,17|2-6} {at: 1}
+<div>
+  <div>
+    <h1>Welcome to my app!</h1>
+    <h2>This part is not scanned nor touched...</h2>
+    <h3>...by petite-vue</h3>
+  </div>
+  <div v-scope="{ count: 0 }" id="counter">
+    Count: {{ count }}
+    <button @click="count++">
+      Increment
+    </button> 
+  </div>
+</div>
+
+<script type="module">
+  import { createApp } from 'https://unpkg.com/petite-vue?module'
+  createApp().mount('#counter')
+</script>
+```
+
+</Code>
+
+<VClicks class="mt-5" at="1">
+
+  * Often we only want to make a small part of our app interactive
+  * In this case we can mark the element, e.g. via id, and pass the selector to the `mount` call
+    * like in Vue.js
+  * Other parts of the DOM are not scanned by `petite-vue`
+
+</VClicks>
+</Grid>
+
+---
+clicks: 3
 ---
 
-# `createApp` as root state
+# `createApp` as root scope
+
+<Grid>
+<Code v-click="1">
+
+```html{all|12-14|1-8,12-14} {at: 1}
+<div v-scope>
+  Count: {{ count }}
+</div>
+<div v-scope>
+  <button @click="count++">
+    Increment
+  </button> 
+</div>
+
+<script type="module">
+  import { createApp } from 'https://unpkg.com/petite-vue?module'
+  createApp({
+    count: 0
+  }).mount()
+</script>
+```
+
+</Code>
+
+<VClicks class="mt-5" at="2">
+
+  * You can pass state to the `createApp` function
+  * It will be available all parts touched by `petite-vue`
+
+</VClicks>
+</Grid>
 
 ---
 
-# No computeds
+# No computed properties
 
 ---
 
@@ -536,22 +607,22 @@ clicks: 2
 # Showcasing Alpine & `petite-vue`
 
 <Grid>
-<Code file="alpine.html">
-
-```html
-<div x-data="{ count: 0 }">
-  <button x-on:click="count++">Increment</button>
-  <span x-text="count"></span>
-</div>
-```
-
-</Code>
 <Code file="petite-vue.html">
 
 ```html
 <div v-scope="{ count: 0 }">
   <button @click="count++">Increment</button> 
   <span>{{ count }}</span>
+</div>
+```
+
+</Code>
+<Code v-click file="alpine.html">
+
+```html
+<div x-data="{ count: 0 }">
+  <button x-on:click="count++">Increment</button>
+  <span x-text="count"></span>
 </div>
 ```
 
