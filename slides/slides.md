@@ -6,12 +6,6 @@ handle: 'TheAlexLichter'
 favicon: 'https://lichter.io/img/me@2x.jpg'
 highlighter: shiki
 lineNumbers: true
-layout: image
-image: 'https://media.giphy.com/media/lgcUUCXgC8mEo/giphy.gif'
----
-
-
----
 layout: intro
 ---
 
@@ -22,6 +16,20 @@ layout: intro
 <br><br><br><br>
 
 ### Vue.js Amsterdam 2022
+
+<!--
+
+Checklist:
+
+1. Sound (browser - what is love)
+2. Slide readability
+3. Presenter?
+4. Open BACKUP for Live Coding in NEW TAB -> https://codepen.io/manniL/pen/vYdrJRP
+5. Open LIVE CODING PEN in SAME TAB as PRESENTATION -> https://codepen.io/manniL/pen/MWQXvGm?editors=1100
+6. Open DEMO CodePen BETWEEN LIVE AND PRES -> https://codepen.io/manniL/pen/OJQExxW
+7. Set up CodePen editor windows
+
+-->
 
 ---
 layout: two-cols
@@ -46,6 +54,7 @@ heading: About me
 * <logos-nuxt-icon /> Nuxt.js Maintainer
 * <mdi-twitter class="text-blue-400" /> @TheAlexLichter
 * <mdi-web /> [https://lichter.io](https://lichter.io)
+* <mdi-github /> [manniL](https://github.com/manniL)
 
 </VClicks>
 </template>
@@ -55,7 +64,12 @@ layout: intro
 ---
 
 # When we use <logos-vue />...
+
+<VClick>
+
 # ...we often develop SPAs
+
+</VClick>
 
 ---
 layout: intro
@@ -70,16 +84,29 @@ Ask the audience to shout the number
 -->
 
 ---
+layout: intro
+---
+
+# Nobody knows!
+
+<img class="mx-auto" src="https://media.giphy.com/media/jPAdK8Nfzzwt2/giphy.gif" alt="Elmo shrugging">
+
+---
 
 # We don't know how many SPAs exist out there!
 
-<VClicks>
+<VClick>
 
 * ~15% of all websites use a modern JavaScript framework <span class="ml-2 text-xs">[(Web Almanac 2021)](https://docs.google.com/spreadsheets/d/1zU9rHpI3nC6jTz3xgN6w13afW7x34xAKBh2IPH-lVxk/edit#gid=1851485826)</span>
   * e.g. Vue, Svelte or React
-* But not all these sites are SPAs...
 
-</VClicks>
+</VClick>
+
+<VClick>
+
+## **But not all these sites are SPAs...**
+
+</VClick>
 
 <!-- 
 Dataset: 8.2M websites roughly
@@ -94,29 +121,43 @@ Also, there are many non-public facing sites
 
 <VClicks>
 
-* But we don't always a green field 
+* But we don't always have a green field for our beloved stack
 * Often, existing projects are no SPAs
 * Maybe they use the LAMP stack or are "traditional server-rendered" Java based monoliths
 
 </VClicks>
 
-
 <div class="h-10 w-full flex justify-around mt-2 text-4xl" v-click>
-
-<logos-xampp />
-<logos-java />
-
+  <logos-xampp />
+  <logos-java />
 </div>
 
-<VClicks class="mt-8">
+<!--
+Ref: The unwanted stack - Maya
+-->
 
-* Often, decisions are **against migrating** a large project to an SPA or even another framework
+---
+
+<div class="flex flex-col items-center justify-center">
+<p class="pt-16 text-2xl">
+
+Decisions are often made **against migrating** to an SPA
+
+</p>
+
+<VClicks class="mt-4">
+
 * Not enough time
 * Budget too low
 * Too much domain knowledge in the code 
 * Not enough experience in writing SPAs / in working with the new framework
 
 </VClicks>
+</div>
+
+<!--
+Or to another framework
+-->
 
 ---
 
@@ -146,7 +187,7 @@ layout: intro
 <VClicks>
 
 * Deliver essential functionalities and content to as many users as possible
-* Especially those that don't have JavaScript enabled or available!
+* Also to these with disabled/unavailable JavaScript
 * Great design philosophy for server-rendered applications (<logos-php /> / <logos-laravel/> / <logos-python/> / <logos-java/> / ...)
 
 </VClicks>
@@ -160,10 +201,10 @@ layout: intro
 <VClicks>
 
 * You **can** do that, but...
-* You have to set up your toolchain and configure the build step
-* It has a size of 22.5 kB (but is treeshakable)
-* It might be too powerful (ROLP) 
-* Or even too much new things to learn for devs new to JavaScript frameworks
+* Build step setup
+* 22.5 kB (but treeshakable)
+* Too powerful? (ROLP) 
+* Too many things to learn for devs new to JS frameworks?
 
 </VClicks>
 
@@ -174,9 +215,11 @@ layout: intro
 <VClicks>
 
 * No build step anymore, but...
-* 13 kB additional overhead due to the runtime template compiler
-* No DOM reuse possible (e.g. when using SSR + <logos-nuxt-icon />)
-* Compiling templates at run-time and throwing away the "existing DOM" that came from the server.
+* 35.5kB (**+13**) due to runtime template compiler
+* No DOM reuse possible 
+  * possible when using SSR (<logos-nuxt-icon />)
+  * Compiling templates at run-time
+  * Throwing away the "existing DOM" that came from the server
 * ROLP / too much new too learn apply here too
 
 </VClicks>
@@ -187,10 +230,11 @@ layout: intro
 
 <VClicks>
 
-* No extra files to transfer besides the JS files containing logic
-* Totally feasible for **tiny bits** of interactivity
-* e.g. a hamburger menu
-* But hard to maintain, reuse and not declarative
+* No extra files to transfer
+* Only JS files containing logic
+* Feasible for **tiny bits** of interactivity
+  * e.g. hamburger menu
+* Can be hard to maintain, reuse and not declarative
 
 </VClicks>
 
@@ -273,13 +317,24 @@ function clearInput() {
 </Grid>
 ---
 
-<div class="text-center">
+<div class="text-center relative">
 
 # Okay, one more try - jQuery <mdi-jquery />
 
-<VClick>
-<img class="mx-auto" src="https://media.giphy.com/media/ToMjGpOjkiEjzJ1ZaJG/giphy.gif" alt="How dare you GIF">
-</VClick>
+</div>
+
+---
+clicks: 1
+---
+<div class="text-center relative">
+
+# Okay, one more try - jQuery <mdi-jquery />
+
+<img v-click-hide class="mx-auto" src="https://media.giphy.com/media/ToMjGpOjkiEjzJ1ZaJG/giphy.gif" alt="How dare you GIF">
+<div v-click="1" class="absolute mx-auto top-25 left-80">
+<img class="h-50" src="/jason.jpg" alt="Jason">
+<p>Don't be like Jason!</p>
+</div>
 </div>
 
 ---
@@ -297,6 +352,7 @@ layout: intro
 <VClicks>
 
 * Released on Jul 2, 2021 (roughly a year ago!)
+* Created by **Evan You** as a side project
 * A minimal subset of Vue (5.5 kB)
 * Keeps Vue-like syntax & is powered by `@vue/reactivity`
 * Reduced feature scope
@@ -305,6 +361,12 @@ layout: intro
 
 </VClicks>
 
+<!--
+Will just walk over the existing dom
+-->
+
+---
+clicks: 3
 ---
 
 # From a Vue SFC to the little sister
@@ -312,7 +374,7 @@ layout: intro
 <Grid>
 <Code file="App.vue">
 
-```vue
+```vue{all|7-12|3}
 <script lang="ts" setup>
 import { ref } from 'vue'
 const count = ref(0)
@@ -330,7 +392,7 @@ const count = ref(0)
 
 </Code>
 <div>
-<Code v-click file="Move the template into the HTML file">
+<Code v-click="1" file="Move the template into the HTML file">
 
 ```html
 <body>
@@ -343,7 +405,7 @@ const count = ref(0)
 </body>
 ```
 </Code>
-<Code v-click file="Add v-scope directive">
+<Code v-click="2" file="Add v-scope directive">
 
 ```html
 <body>
@@ -360,7 +422,7 @@ const count = ref(0)
 </div>
 </Grid>
 
-<Code v-click file="Import petite-vue">
+<Code v-click="3" file="Import petite-vue">
 
 ```html
 <script src="https://unpkg.com/petite-vue" defer init></script>
@@ -403,7 +465,9 @@ On init: query all elements that have v-scope directive
 Fine grained init also possible
 defer -> after HTML is parsed
 
+DEMO in iFrame
 -->
+
 
 ---
 clicks: 2
@@ -470,8 +534,8 @@ clicks: 3
 <div>
   <div>
     <h1>Welcome to my app!</h1>
-    <h2>This part is not scanned nor touched...</h2>
-    <h3>...by petite-vue</h3>
+    <h2>{{ count }} won't render here</h2>
+    <h3>Because petite-vue did not mounted here</h3>
   </div>
   <div v-scope="{ count: 0 }" id="counter">
     Count: {{ count }}
@@ -500,7 +564,7 @@ clicks: 3
 </Grid>
 
 ---
-clicks: 3
+clicks: 4
 ---
 
 # `createApp` as root scope
@@ -508,20 +572,23 @@ clicks: 3
 <Grid>
 <Code v-click="1">
 
-```html{all|12-14|1-8,12-14} {at: 1}
+```html{all|12-17|1-8,12-17|5,14-16} {at: 1}
 <div v-scope>
   Count: {{ count }}
 </div>
 <div v-scope>
-  <button @click="count++">
-    Increment
+  <button @click="increment">
+    Increment {{ count }} by one
   </button> 
 </div>
 
 <script type="module">
   import { createApp } from 'https://unpkg.com/petite-vue?module'
   createApp({
-    count: 0
+    count: 0,
+    increment() {
+      this.count++
+    }
   }).mount()
 </script>
 ```
@@ -530,46 +597,232 @@ clicks: 3
 
 <VClicks class="mt-5" at="2">
 
-  * You can pass state to the `createApp` function
-  * It will be available all parts touched by `petite-vue`
+* You can pass state to the `createApp` function
+* It will be available in all parts touched by `petite-vue`
+* Also, you can pass methods and access data in the Options API style
 
 </VClicks>
 </Grid>
 
 ---
 
-# No computed properties
+# Computed properties
 
+<VClicks>
+
+* ...do not exist in `petite-vue`
+* Instead you can use a getter function!
+
+</VClicks>
+
+<Code v-click="3">
+
+```html{all|3,12-16} {at: 3}
+<div v-scope>
+  Count: {{ count }}
+  Digit sum {{ digitSum }}
+  <button @click="count++">
+    Increment
+  </button> 
+</div>
+<script type="module">
+  import { createApp } from 'https://unpkg.com/petite-vue?module'
+  createApp({
+    count: 0,
+    get digitSum() {
+      return String(this.count)
+        .split('')
+        .reduce((x, a) => x + Number(a), 0)
+    }
+  }).mount()
+</script>
+```
+
+</Code>
+
+---
+clicks: 5
 ---
 
 # Lifecycle hooks in `petite-vue`
+
+<VClicks>
+
+* There are only two hooks when using petite-vue
+* `@vue:mounted` and `@vue:unmounted`
+* They can be used for each HTML element
+* `$el` can be used inline to access the element
+
+</VClicks>
+
+<Code v-click="2">
+
+```html{all|7-8|7-8|all} {at:2}
+<div v-scope="{ show: false }">
+  <button @click="show = !show">
+    Toggle it!
+  </button>
+  <div
+    v-if="show" 
+    @vue:unmounted="console.log('unmounted', $el)" 
+    @vue:mounted="console.log('mounted', $el)"
+  >
+    Content is being shown!
+  </div>
+</div>
+```
+
+</Code>
 
 ---
 
 # `v-effect`
 
----
+<VClicks>
 
-# Components in `petite-vue`
+* Every app needs **side effects**
+* To trigger them based on reactive values we can use `v-effect`
 
----
+</VClicks>
 
-# Your own Store
+<VClick>
 
-```html
-<script>
-  import { createApp, reactive } from 'https://unpkg.com/petite-vue?module'
-  
-  const store = reactive({
-    count: 0,
-    increment () {
-      this.count++
+```html {all|1,11-17|all}
+<div v-scope v-effect="getData()">
+  <input v-model="input" type="number" min="1" max="10">
+  <pre>{{user.name}}</pre>
+</div>
+
+<script type="module">
+  import { createApp } from 'https://unpkg.com/petite-vue?module'
+  createApp({
+    input: '',
+    user: {},
+    async getData () {
+      if(!this.input) {
+        return
+      }
+      const url = 'https://jsonplaceholder.typicode.com/users/' + this.input
+      this.user = await fetch(url).then(r => r.json())
     }
-  })
-  
-  createApp({ store }).mount()
+  }).mount()
 </script>
 ```
+
+</VClick>
+
+---
+
+# Components in `petite-vue` I
+
+<VClicks>
+
+* `petite-vue` provides a way to abstract components too
+* Components are functions returning the components state, getters and methods
+
+</VClicks>
+
+<Grid>
+<div v-click>
+
+```html
+<script type="module">
+  import { createApp } from 'https://unpkg.com/petite-vue?module'
+  
+  function NumberList(props) {
+    return {
+      numbers: props.numbers,
+      get min() {
+        return Math.min(...this.numbers)
+      },
+      addNumber() {
+        this.numbers.push(this.numbers.length)
+      }
+    }
+  }
+  
+  createApp({ NumberList }).mount()
+</script>
+```
+
+</div>
+
+<div v-click>
+
+```html
+<div v-scope="NumberList({ numbers: [1, 2, 3] })">
+  <p>{{ numbers }}</p>
+  <p>Min: {{ min }}</p>
+  <button @click="addNumber">Add Number</button>
+</div>
+
+<div v-scope="NumberList({ numbers: [0] })">
+  <p>{{ numbers }}</p>
+  <p>Min: {{ min }}</p>
+  <button @click="addNumber">Add Number</button>
+</div>
+```
+
+</div>
+</Grid>
+
+---
+
+# Components in `petite-vue` II
+
+<VClicks>
+
+* But what about component `template`s?
+* `<template>` to the rescue!
+
+</VClicks>
+
+<Grid>
+<div v-click>
+
+```html
+<div v-scope="NumberList({ numbers: [1, 2, 3] })">
+  <p>{{ numbers }}</p>
+  <p>Min: {{ min }}</p>
+  <button @click="addNumber">Add Number</button>
+</div>
+
+<div v-scope="NumberList({ numbers: [0] })">
+  <p>{{ numbers }}</p>
+  <p>Min: {{ min }}</p>
+  <button @click="addNumber">Add Number</button>
+</div>
+```
+
+</div>
+
+<div v-click>
+
+```html
+<div v-scope="NumberList({ numbers: [1, 2, 3] })">
+<div v-scope="NumberList({ numbers: [0] })">
+
+<template id="number-list-template">
+  <p>{{ numbers }}</p>
+  <p>Min: {{ min }}</p>
+  <button @click="addNumber">Add Number</button>
+</template>
+
+<script type="module">
+  /* ... */
+  function NumberList(props) {
+    return {
+      $template: '#number-list-template',
+      /* ... */
+    }
+  }
+  
+  createApp({ NumberList }).mount()
+</script>
+```
+
+</div>
+</Grid>
 
 ---
 
@@ -577,8 +830,6 @@ clicks: 3
 
 <VClicks>
 
-* As `petite-vue` is a subset, some features of Vue are not available
-* Most of them are not needed for progressive enhancement anyway, e.g.:
 * No `render` functions (due to missing VDOM)
 * Teleports, Suspense and other SPA features
 * Transitions (can be theoretically added as a plugin though)
@@ -587,24 +838,16 @@ clicks: 3
 
 </VClicks>
 
----
+<!--
 
-# Alpine.js and `petite-vue`
+* As `petite-vue` is a subset, some features of Vue are not available
+* Most of them are not needed for progressive enhancement anyway, e.g.:
 
-<VClicks>
-
-* Alpine.js is a lightweight JavaScript framework as well
-* It was inspired by Vue and uses `@vue/reactivity` under the hood
-* `petite-vue` on the other hand was inspired by **Alpine**
-* Full circle! 
-
-</VClicks>
-
-<img class="mx-auto h-40" v-click src="https://media.giphy.com/media/UtKqel5XBUOubW9mTb/giphy.gif">
+-->
 
 ---
 
-# Showcasing Alpine & `petite-vue`
+# Alpine.js
 
 <Grid>
 <Code file="petite-vue.html">
@@ -633,6 +876,20 @@ clicks: 3
 
 ---
 
+# Alpine.js and `petite-vue`
+
+<VClicks>
+
+* Alpine.js is a lightweight JavaScript framework as well
+* It was inspired by Vue and uses `@vue/reactivity` under the hood
+* `petite-vue` on the other hand was inspired by **Alpine**
+
+</VClicks>
+
+<img class="mx-auto mt-8 h-40" v-click src="https://media.giphy.com/media/UtKqel5XBUOubW9mTb/giphy.gif">
+
+---
+
 # Differences between Alpine and `petite-vue`
 
 <VClicks>
@@ -655,16 +912,21 @@ When building applications
 flowchart LR
     A[App] --> B{Green field project?}
     B -->|Yes| C[Nuxt.js]
-    B -->|No| D{Needs tiny pieces of interactivity}
+    B -->|No| D{Only tiny pieces of interactivity}
     D -->|Yes| E[Vanilla JavaScript]
-    D -->|No| F[Leverages jQuery]
-    F -->|Yes| G[petite-vue]
-    F -->|No| H{Uses a modern framework already}
-    H -->|Yes| I[Keep the framework]
-    H -->|No| J[Vue.js]
+    D -->|No| F{Uses a modern framework already}
+    F -->|Yes| G[Keep the framework]
+    F -->|No| H{Needs advanced features}
+    H -->|Yes| I[Vue.js]
+    H -->|No| J[petite-vue]
 ```
 
 </div>
+
+---
+layout: intro
+---
+# [Live Coding](https://codepen.io/manniL/pen/MWQXvGm?editors=1010)
 
 ---
 
@@ -673,10 +935,10 @@ flowchart LR
 <VClicks>
 
 * Not all projects are SPAs and some don't **have to**!
-* Use the appropriate tools in your belt for the task
-* `petite-vue` is a nice option to sprinkle interactivity into your server-rendered application
-* It is smaller and has no VDOM -> ideal for progressive enhancement
-* Vuesers will have an easy time writing `petite-vue` and it will make a possible migration easier
+* Use the appropriate tools in your toolbelt
+* `petite-vue` + progressive enhancement = **perfect match**
+* Part of the **Vue ecosystem**
+* Easy migration to "full Vue"
 
 </VClicks>
 
@@ -712,6 +974,7 @@ heading: Thanks for your attention
 * <logos-nuxt-icon /> Nuxt.js Maintainer
 * <mdi-twitter class="text-blue-400" /> @TheAlexLichter
 * <mdi-web /> [https://lichter.io](https://lichter.io)
+* <mdi-github /> [manniL](https://github.com/manniL)
 
 </div>
 </template>
