@@ -1,9 +1,9 @@
 ---
 theme: ./theme
-title: 'petite-vue - Progressively enhancing every application?'
-website: 'lichter.io'
-handle: 'TheAlexLichter'
-favicon: 'https://lichter.io/img/me@2x.jpg'
+title: petite-vue - Progressively enhancing every application?
+website: lichter.io
+handle: TheAlexLichter
+favicon: https://lichter.io/img/me@2x.jpg
 highlighter: shiki
 lineNumbers: true
 layout: intro
@@ -18,17 +18,15 @@ layout: intro
 ### Vue.js Amsterdam 2022
 
 <!--
-
 Checklist:
 
 1. Sound (browser - what is love)
 2. Slide readability
 3. Presenter?
-4. Open BACKUP for Live Coding in NEW TAB -> https://codepen.io/manniL/pen/vYdrJRP
+4. Open BACKUP for Live Coding in Presenter TAB -> https://codepen.io/manniL/pen/vYdrJRP
 5. Open LIVE CODING PEN in SAME TAB as PRESENTATION -> https://codepen.io/manniL/pen/MWQXvGm?editors=1100
 6. Open DEMO CodePen BETWEEN LIVE AND PRES -> https://codepen.io/manniL/pen/OJQExxW
 7. Set up CodePen editor windows
-
 -->
 
 ---
@@ -333,7 +331,7 @@ clicks: 1
 <img v-click-hide class="mx-auto" src="https://media.giphy.com/media/ToMjGpOjkiEjzJ1ZaJG/giphy.gif" alt="How dare you GIF">
 <div v-click="1" class="absolute mx-auto top-25 left-80">
 <img class="h-50" src="/jason.jpg" alt="Jason">
-<p>Don't be like Jason!</p>
+<p>Don't be like Jason (@JSONTheDev)!</p>
 </div>
 </div>
 
@@ -816,7 +814,6 @@ clicks: 5
       /* ... */
     }
   }
-  
   createApp({ NumberList }).mount()
 </script>
 ```
